@@ -1,0 +1,8 @@
+---
+layout: post
+title: Install ImageMagick without X11 
+---
+<pre>
+	sudo port install ImageMagick +no_x11
+</pre>
+
