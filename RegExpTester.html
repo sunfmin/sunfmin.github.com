@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>RegExp Tester</title>
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+
+</head>
+<script language="JavaScript">
+<!--
+function $(id, doc){
+	var found = null;
+	if(id && (typeof id == "string" || id instanceof String)){
+		if(!doc){ doc = document; }
+		found = doc.getElementById(id);
+		if (found){
+			return found;
+		}
+
+	}
+	return id;
+}
+
+
+
+var regexpTester = new Object();
+
+
+regexpTester.connectOnLoad = function(target){
+	var old = window.onload;
+	window.onload = function(evt){
+		if(old){
+			old(evt);
+		}
+		target(evt);
+	}
+
+}
+
+
+regexpTester.matchIt = function(e){
+	var out = $("resultOutput");
+	out.value = "";
+	try{
+
+
+		var pattern = $("regexpPattern").value;
+
+		var text = $("targetText").value;
+
+		var tester = null;
+		if(pattern.indexOf("/") == 0){
+			tester = eval(pattern);
+		}else{
+			tester = new RegExp(pattern);
+		}
+
+
+
+		var matches = tester.exec(text);
+		if(matches){
+			for(var i=0; i < matches.length; i++){
+				out.value = out.value + i + " = [" + matches[i] + "]\n";
+			}
+
+		}else{
+			out.value = "No Matches.";
+		}
+
+	}catch(e){
+		out.value = e.message;
+	}
+}
+
+
+regexpTester.connectTransfer = function(){
+	$("matchIt").onclick = regexpTester.matchIt;
+
+}
+regexpTester.connectOnLoad(regexpTester.connectTransfer);
+
+
+
+
+//-->
+</script>
+<style>
+textarea{
+  font-family: monospace;
+	font-size:14pt;
+	overflow:visible;
+
+}
+
+input {
+  font-family: monospace;
+	font-size:14pt;
+}
+
+h2 {
+	font-size:18pt;
+}
+
+h3 {
+	font-size:16pt;
+}
+
+</style>
+
+<body>
+<h2>RegExp Tester</h2>
+<h3>Pattern:</h3>
+<textarea id="regexpPattern" rows="3" cols="60">
+/.*(\/(.*)\/).*/
+</textarea>
+
+<h3>Text:</h3>
+<textarea id="targetText" rows="5" cols="60" wrap="off">
+If your markup is in a language other than Ruby, drop a translator script in lib/github/commands which accepts input on STDIN and returns HTML on STDOUT. See rest2html for an exampl
+</textarea>
+<hr/>
+
+
+<input type="button" id="matchIt" value="Match It" >
+
+<hr/>
+
+<textarea id="resultOutput" rows="8" cols="60" wrap="off">
+</textarea>
+
+</body>
+
+
+</html>
