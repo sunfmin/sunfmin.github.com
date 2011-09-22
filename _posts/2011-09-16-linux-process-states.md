@@ -357,3 +357,387 @@ lsof|grep 10064
          1895  1896  1601  1601 ?           -1 Rl    1001   0:09  |           \_ ruby /home/app/bundle/ruby/1.9.1/bin/rake qor:job:run JOB=import_stores WORKER_ID=85 RAILS_ENV=production_draft NO_I18N_CACHE=1 --trace
          1604  1611  1601  1601 ?           -1 Sl    1001   0:17  \_ unicorn worker[1] -E production_draft -D -c /home/app/app_draft/current/config/system/unicorn.conf.rb                                          
 
+
+
+
+
+dmesg
+
+
+         [13377282.088496] INFO: task ruby:9412 blocked for more than 120 seconds.
+         [13377282.088517] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377282.088525] ruby          D ffff880003dec980     0  9412   9408 0x00000004
+         [13377282.088532]  ffff8801b9f4fa48 0000000000000282 ffff880100000000 0000000000015980
+         [13377282.088538]  ffff8801b9f4ffd8 0000000000015980 ffff8801b9f4ffd8 ffff8801d7778000
+         [13377282.088544]  0000000000015980 0000000000015980 ffff8801b9f4ffd8 0000000000015980
+         [13377282.088550] Call Trace:
+         [13377282.088561]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377282.088569]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377282.088572]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377282.088576]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377282.088580]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377282.088585]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377282.088591]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377282.088597]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377282.088602]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377282.088611]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377282.088617]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377282.088621]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377282.088625]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377282.088629]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377282.088633]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377282.088637]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377282.088641]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377282.088647]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377282.088652]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377282.088656]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377282.088661]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377282.088666]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377282.088669]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377282.088673]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377282.088677]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377282.088681]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377282.088685]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377282.088689]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377282.088692]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377282.088697]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377282.088700] INFO: task ruby:9415 blocked for more than 120 seconds.
+         [13377282.088707] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377282.088713] ruby          D ffff880003dec980     0  9415   9408 0x00000004
+         [13377282.088719]  ffff8801b9f27a48 0000000000000286 ffff880100000000 0000000000015980
+         [13377282.088724]  ffff8801b9f27fd8 0000000000015980 ffff8801b9f27fd8 ffff8801d5f0c4a0
+         [13377282.088730]  0000000000015980 0000000000015980 ffff8801b9f27fd8 0000000000015980
+         [13377282.088735] Call Trace:
+         [13377282.088739]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377282.088743]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377282.088746]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377282.088750]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377282.088753]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377282.088757]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377282.088760]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377282.088764]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377282.088768]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377282.088773]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377282.088776]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377282.088780]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377282.088784]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377282.088788]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377282.088791]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377282.088795]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377282.088799]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377282.088803]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377282.088806]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377282.088810]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377282.088813]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377282.088817]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377282.088820]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377282.088824]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377282.088827]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377282.088830]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377282.088834]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377282.088838]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377282.088841]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377282.088845]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377282.088849] INFO: task ruby:9418 blocked for more than 120 seconds.
+         [13377282.088855] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377282.088861] ruby          D ffff880003dec980     0  9418   9408 0x00000004
+         [13377282.088866]  ffff8801d7107a48 0000000000000282 ffff8801d71079c8 0000000000015980
+         [13377282.088872]  ffff8801d7107fd8 0000000000015980 ffff8801d7107fd8 ffff880125202dc0
+         [13377282.088877]  0000000000015980 0000000000015980 ffff8801d7107fd8 0000000000015980
+         [13377282.088883] Call Trace:
+         [13377282.088886]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377282.088890]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377282.088893]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377282.088897]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377282.088900]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377282.088904]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377282.088908]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377282.088911]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377282.088915]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377282.088920]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377282.088924]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377282.088927]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377282.088931]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377282.088935]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377282.088939]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377282.088943]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377282.088946]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377282.088950]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377282.088954]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377282.088958]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377282.088961]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377282.088964]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377282.088968]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377282.088971]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377282.088974]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377282.088978]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377282.088981]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377282.088985]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377282.088989]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377282.088993]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377282.088996] INFO: task ruby:9424 blocked for more than 120 seconds.
+         [13377282.089002] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377282.089008] ruby          D ffff880003dec980     0  9424   9408 0x00000004
+         [13377282.089013]  ffff8801d71dfa48 0000000000000286 ffff8801d71df9c8 0000000000015980
+         [13377282.089019]  ffff8801d71dffd8 0000000000015980 ffff8801d71dffd8 ffff8800ba94db80
+         [13377282.089024]  0000000000015980 0000000000015980 ffff8801d71dffd8 0000000000015980
+         [13377282.089030] Call Trace:
+         [13377282.089033]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377282.089037]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377282.089040]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377282.089044]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377282.089047]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377282.089051]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377282.089055]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377282.089058]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377282.089062]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377282.089066]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377282.089070]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377282.089074]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377282.089078]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377282.089082]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377282.089086]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377282.089089]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377282.089093]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377282.089097]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377282.089100]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377282.089105]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377282.089108]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377282.089111]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377282.089115]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377282.089118]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377282.089121]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377282.089125]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377282.089128]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377282.089132]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377282.089136]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377282.089140]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377402.088502] INFO: task ruby:9412 blocked for more than 120 seconds.
+         [13377402.088525] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377402.088533] ruby          D ffff880003dec980     0  9412   9408 0x00000004
+         [13377402.088539]  ffff8801b9f4fa48 0000000000000282 ffff880100000000 0000000000015980
+         [13377402.088546]  ffff8801b9f4ffd8 0000000000015980 ffff8801b9f4ffd8 ffff8801d7778000
+         [13377402.088552]  0000000000015980 0000000000015980 ffff8801b9f4ffd8 0000000000015980
+         [13377402.088558] Call Trace:
+         [13377402.088568]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377402.088576]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377402.088580]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377402.088584]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377402.088587]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377402.088593]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377402.088598]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377402.088605]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377402.088610]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377402.088618]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377402.088624]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377402.088627]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377402.088631]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377402.088636]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377402.088640]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377402.088643]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377402.088647]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377402.088653]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377402.088658]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377402.088663]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377402.088666]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377402.088671]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377402.088674]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377402.088678]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377402.088682]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377402.088686]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377402.088690]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377402.088694]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377402.088697]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377402.088702]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377402.088706] INFO: task ruby:9415 blocked for more than 120 seconds.
+         [13377402.088712] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377402.088718] ruby          D ffff880003dec980     0  9415   9408 0x00000004
+         [13377402.088724]  ffff8801b9f27a48 0000000000000286 ffff880100000000 0000000000015980
+         [13377402.088730]  ffff8801b9f27fd8 0000000000015980 ffff8801b9f27fd8 ffff8801d5f0c4a0
+         [13377402.088735]  0000000000015980 0000000000015980 ffff8801b9f27fd8 0000000000015980
+         [13377402.088741] Call Trace:
+         [13377402.088744]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377402.088748]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377402.088751]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377402.088755]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377402.088758]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377402.088762]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377402.088766]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377402.088770]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377402.088774]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377402.088778]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377402.088782]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377402.088785]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377402.088789]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377402.088793]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377402.088797]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377402.088801]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377402.088804]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377402.088808]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377402.088811]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377402.088816]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377402.088819]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377402.088822]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377402.088826]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377402.088829]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377402.088832]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377402.088836]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377402.088839]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377402.088843]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377402.088847]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377402.088851]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377402.088854] INFO: task ruby:9418 blocked for more than 120 seconds.
+         [13377402.088859] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377402.088866] ruby          D ffff880003dec980     0  9418   9408 0x00000004
+         [13377402.088871]  ffff8801d7107a48 0000000000000282 ffff8801d71079c8 0000000000015980
+         [13377402.088877]  ffff8801d7107fd8 0000000000015980 ffff8801d7107fd8 ffff880125202dc0
+         [13377402.088882]  0000000000015980 0000000000015980 ffff8801d7107fd8 0000000000015980
+         [13377402.088888] Call Trace:
+         [13377402.088891]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377402.088895]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377402.088898]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377402.088902]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377402.088905]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377402.088909]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377402.088913]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377402.088916]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377402.088920]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377402.088925]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377402.088928]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377402.088932]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377402.088936]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377402.088940]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377402.088943]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377402.088947]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377402.088951]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377402.088955]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377402.088958]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377402.088963]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377402.088966]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377402.088969]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377402.088973]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377402.088976]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377402.088980]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377402.088983]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377402.088987]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377402.088990]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377402.088994]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377402.088998]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377402.089001] INFO: task ruby:9424 blocked for more than 120 seconds.
+         [13377402.089007] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377402.089014] ruby          D ffff880003dec980     0  9424   9408 0x00000004
+         [13377402.089018]  ffff8801d71dfa48 0000000000000286 ffff8801d71df9c8 0000000000015980
+         [13377402.089024]  ffff8801d71dffd8 0000000000015980 ffff8801d71dffd8 ffff8800ba94db80
+         [13377402.089029]  0000000000015980 0000000000015980 ffff8801d71dffd8 0000000000015980
+         [13377402.089035] Call Trace:
+         [13377402.089038]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377402.089042]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377402.089045]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377402.089049]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377402.089052]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377402.089056]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377402.089060]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377402.089063]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377402.089067]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377402.089072]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377402.089075]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377402.089079]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377402.089083]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377402.089087]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377402.089090]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377402.089094]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377402.089098]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377402.089102]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377402.089106]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377402.089110]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377402.089113]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377402.089117]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377402.089120]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377402.089123]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377402.089126]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377402.089130]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377402.089133]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377402.089137]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377402.089141]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377402.089144]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377402.089149] INFO: task ruby:9985 blocked for more than 120 seconds.
+         [13377402.089155] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377402.089161] ruby          D ffff880003dec980     0  9985   9408 0x00000004
+         [13377402.089166]  ffff8801d5b39a48 0000000000000282 ffff880100000000 0000000000015980
+         [13377402.089171]  ffff8801d5b39fd8 0000000000015980 ffff8801d5b39fd8 ffff8801d7598000
+         [13377402.089176]  0000000000015980 0000000000015980 ffff8801d5b39fd8 0000000000015980
+         [13377402.089181] Call Trace:
+         [13377402.089185]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377402.089189]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377402.089192]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377402.089196]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377402.089199]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377402.089202]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377402.089206]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377402.089210]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377402.089214]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377402.089218]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377402.089222]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377402.089225]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377402.089229]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377402.089233]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377402.089236]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377402.089240]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377402.089243]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377402.089247]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377402.089251]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377402.089255]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377402.089258]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377402.089261]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377402.089264]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377402.089268]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377402.089273]  [<ffffffff8111f439>] ? do_wp_page+0x369/0x900
+         [13377402.089277]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377402.089280]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377402.089284]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377402.089288]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377402.089291]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+         [13377522.086012] INFO: task ruby:9412 blocked for more than 120 seconds.
+         [13377522.086034] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+         [13377522.086042] ruby          D ffff880003dec980     0  9412   9408 0x00000004
+         [13377522.086048]  ffff8801b9f4fa48 0000000000000282 ffff880100000000 0000000000015980
+         [13377522.086055]  ffff8801b9f4ffd8 0000000000015980 ffff8801b9f4ffd8 ffff8801d7778000
+         [13377522.086061]  0000000000015980 0000000000015980 ffff8801b9f4ffd8 0000000000015980
+         [13377522.086067] Call Trace:
+         [13377522.086077]  [<ffffffff81100ac0>] ? sync_page+0x0/0x50
+         [13377522.086086]  [<ffffffff815a20f3>] io_schedule+0x73/0xc0
+         [13377522.086089]  [<ffffffff81100afd>] sync_page+0x3d/0x50
+         [13377522.086093]  [<ffffffff815a261a>] __wait_on_bit_lock+0x5a/0xc0
+         [13377522.086096]  [<ffffffff81100a97>] __lock_page+0x67/0x70
+         [13377522.086102]  [<ffffffff8107f0c0>] ? wake_bit_function+0x0/0x40
+         [13377522.086108]  [<ffffffff8110b612>] ? pagevec_lookup+0x22/0x30
+         [13377522.086114]  [<ffffffff81006b3d>] ? xen_force_evtchn_callback+0xd/0x10
+         [13377522.086119]  [<ffffffff8110cb4e>] invalidate_inode_pages2_range+0x29e/0x2b0
+         [13377522.086127]  [<ffffffff81141779>] ? kmem_cache_free+0x99/0x100
+         [13377522.086133]  [<ffffffff81241378>] ? fuse_request_free+0x18/0x20
+         [13377522.086137]  [<ffffffff81241440>] ? fuse_put_request+0xc0/0xd0
+         [13377522.086141]  [<ffffffff8110cb77>] invalidate_inode_pages2+0x17/0x20
+         [13377522.086145]  [<ffffffff81248b10>] fuse_finish_open+0x60/0x70
+         [13377522.086149]  [<ffffffff81248e99>] fuse_open_common+0x89/0x90
+         [13377522.086153]  [<ffffffff81248ea0>] ? fuse_open+0x0/0x20
+         [13377522.086156]  [<ffffffff81248eb0>] fuse_open+0x10/0x20
+         [13377522.086161]  [<ffffffff81151265>] __dentry_open+0xe5/0x330
+         [13377522.086166]  [<ffffffff8125f69f>] ? security_inode_permission+0x1f/0x30
+         [13377522.086170]  [<ffffffff811515c4>] nameidata_to_filp+0x54/0x70
+         [13377522.086174]  [<ffffffff8115e0b8>] finish_open+0xe8/0x1d0
+         [13377522.086180]  [<ffffffff81166926>] ? dput+0xd6/0x1a0
+         [13377522.086183]  [<ffffffff8115f526>] do_last+0x86/0x460
+         [13377522.086187]  [<ffffffff8116185b>] do_filp_open+0x21b/0x660
+         [13377522.086191]  [<ffffffff810043c6>] ? xen_mc_flush+0x96/0x1c0
+         [13377522.086195]  [<ffffffff8115da4b>] ? getname+0x3b/0x240
+         [13377522.086199]  [<ffffffff8116ce4a>] ? alloc_fd+0x10a/0x150
+         [13377522.086203]  [<ffffffff81151009>] do_sys_open+0x69/0x170
+         [13377522.086207]  [<ffffffff81151150>] sys_open+0x20/0x30
+         [13377522.086212]  [<ffffffff8100a0f2>] system_call_fastpath+0x16/0x1b
+
+
+
+http://bugs.gluster.com/show_bug.cgi?id=3011
+
+
+
