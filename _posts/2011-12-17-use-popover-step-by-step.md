@@ -85,4 +85,4 @@ title: Use popover step by step
 
 This is because `PopoverViewController.xib` 's Controller class `PopoverViewController.xib` 's view property didn't connect to Interface Builder's Custom View, You can do so by this:
 
-	![image](/images/use-pop-over/p11.png)
+![image](/images/use-pop-over/p11.png)
