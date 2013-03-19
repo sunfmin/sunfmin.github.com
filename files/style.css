@@ -1,0 +1,26 @@
+body {
+	font-family: Palatino, Georgia, serif;
+	line-height: 22px;
+}
+
+body h1 {
+	line-height: 36px;
+}
+
+.site {
+	width: 666px;
+	margin: auto;
+}
+
+.site > ol {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.site .main_content {
+	margin-bottom: 60px;
+}
+
+.site > ol li em {
+	color: gray;
+}

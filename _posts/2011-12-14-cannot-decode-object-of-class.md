@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NSKeyedUnarchiver decodeObjectForKey cannot decode object of class (QTMovieView)
+title: NSKeyedUnarchiver decodeObjectForKey cannot decode object of class
 ---
 
 Because I didn't add QTKit.framework to the project, I got the error:
