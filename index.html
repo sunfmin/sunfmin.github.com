@@ -5,8 +5,16 @@ layout: default
 
 <h1> input, process, output </h1>
 <ol>
-{% for post in site.posts %}
-  <li><em>{{ post.date | date_to_string }}</em> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>  </li>
+{% for post in site.tags.main %}
+  <li><em class="date">{{ post.date | date_to_string }}</em> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>  </li>
 {% endfor %}
 </ol>
+
+<h2 class="watchout"> watch out and tips </h2>
+<ol>
+{% for post in site.tags.watchout %}
+  <li><em class="date">{{ post.date | date_to_string }}</em> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>  </li>
+{% endfor %}
+</ol>
+
 

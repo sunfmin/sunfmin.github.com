@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Open closed company network with ssh out through http proxy
+tags: main
+gplus: https://plus.google.com/109226469261450457142/posts/VRo52YWhM46
 ---
 
 ### The problem

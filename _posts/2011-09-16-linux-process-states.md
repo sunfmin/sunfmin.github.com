@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Linux Process States, processes which stuck into state D
+tags: watchout
 ---
 
 Here are the different values that the s, stat and state output specifiers

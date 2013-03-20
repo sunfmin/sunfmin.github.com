@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Use popover step by step
+tags: main
 ---
 
 ## Correct Steps

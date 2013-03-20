@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Best employee time tracking Mac app
+tags: main
+gplus: https://plus.google.com/109226469261450457142/posts/47qH5x8Y39d
 ---
 
 Timestamp app is simple and very easy to use app for you to track your time when you are at office or at home, It's a Mac OS X application that depends on Your Apple iCal and Local WIFI network. which is availible by default with any Mac OS X system, It make the time tracking really easy and It needs almost zero user involvement only install the software, Whenever your computer joined your local company WIFI network, It will start an event on Apple iCal and marking the start time, When your computer left the local WIFI network, It will mark the event finish time.

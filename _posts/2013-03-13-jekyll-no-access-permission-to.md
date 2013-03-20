@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Jekyll no access permission to `/'
+tags: watchout
 ---
 
 When I start jekyll with:

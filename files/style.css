@@ -21,6 +21,29 @@ body h1 {
 	margin-bottom: 60px;
 }
 
-.site > ol li em {
+body .site em.date {
+	color: gray;
+	font-family: monospace;
+}
+
+.site .comments {
+	margin-top: 40px;
+	padding-top: 20px;
+	border-top: 1px solid #eee;
+}
+
+.site .watchout {
+	margin-top: 40px;
 	color: gray;
 }
+
+a:hover {
+	color: #005580;
+	text-decoration: underline;
+}
+
+a {
+	color: #08c;
+	text-decoration: none;
+}
+
