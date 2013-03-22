@@ -5,6 +5,13 @@ body {
 
 body h1 {
 	line-height: 36px;
+	font-size: 28px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	text-rendering: optimizeLegibility;
+	/*font-family: Georgia, "Microsoft YaHei","Meiryo",serif;*/
 }
 
 .site {
@@ -45,5 +52,17 @@ a:hover {
 a {
 	color: #08c;
 	text-decoration: none;
+}
+
+code {
+	font-size: 15px;
+}
+
+body .gist .gist-file table {
+	font-size: 80%;
+}
+
+body .gist .gist-file .gist-meta {
+	font-size: 80%;
 }
 
