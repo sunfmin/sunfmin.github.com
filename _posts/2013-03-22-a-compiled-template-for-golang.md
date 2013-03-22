@@ -2,6 +2,7 @@
 layout: post
 title: A compiled template engine for Golang
 tags: main
+gplus: https://plus.google.com/109226469261450457142/posts/AW6taLncywi
 ---
 
 I have asked in [go-nuts](https://groups.google.com/forum/?fromgroups=#!topic/golang-nuts/-wYJik7iL60) group that I like to have a template system that compiles to Go code. Here I will describe more about the syntax I think it should work. which I will call it `gtemplate` for now. There is nothing I have down to implement it yet but just show the idea.
