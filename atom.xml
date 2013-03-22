@@ -6,7 +6,7 @@ layout: nil
  
  <title>input, process, output</title>
  <link href="http://sunfmin.com/atom.xml" rel="self"/>
- <link href="http://sunfmin.com.com/"/>
+ <link href="http://sunfmin.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://sunfmin.com/</id>
  <author>
